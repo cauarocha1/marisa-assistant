@@ -34,3 +34,14 @@ Guia rápido para manutenção recorrente e resposta a falhas. Referências: `AG
 ## 5. Sinais de que a memória de conversa precisa de limpeza
 
 - Respostas da Marisa citando contexto de dias/semanas atrás incorretamente → truncar `conversation_history` mais agressivamente (reduzir de 10 para 5 mensagens) em `agent/core.py`.
+
+## 6. Estado atual da integração com o iCloud
+
+- O calendário CalDAV de eventos configurado para a aplicação é `Trabalho`.
+- A lista de Lembretes `UFLA` aparece no iCloud, mas não é anunciada pela
+  coleção CalDAV acessível pela conta usada no serviço.
+- Enquanto a conta não expuser uma URL de tarefas compatível (`VTODO`), provas
+  não devem ser redirecionadas para `Trabalho` nem criadas como eventos comuns.
+- Se a Apple disponibilizar uma URL de tarefas para `UFLA`, atualizar
+  `CALDAV_CALENDAR_URL` somente após confirmar a URL com uma operação de leitura
+  e adicionar testes antes de alterar o comportamento de produção.
